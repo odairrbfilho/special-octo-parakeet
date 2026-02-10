@@ -1,0 +1,111 @@
+body {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+
+    background-color: rgb(20, 21, 56);
+}
+
+img {
+    width: 300px;
+    height: 300px;
+
+    animation-name: fly;
+    animation-duration: 3s;
+    /* animation-iteration-count: infinite; */
+    /* animation-direction: alternate; */
+    /* animation-fill-mode: both; */
+    /* animation-play-state: paused; */
+}
+
+.box {
+    animation: gradient 10s ease alternate infinite;
+    background: linear-gradient(yellow, rgb(128, 228, 35), rgb(216, 113, 165), rgb(81, 81, 243));
+    background-size: 600% 600%;
+
+    outline: 1px solid rgb(255, 0, 0);
+    border-radius: 50%;
+    border: none;
+
+    /* transition-property: background-color, border radius; */
+    /* transition-duration: 0.5s; */
+    /* transition-delay: 0.3s; */
+    /* transition-timing-function: cubic-bezier(); */
+}
+
+
+.text-reveal {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.box-2 {
+    outline: 3px solid rgb(47, 95, 43);
+    padding: 20px;
+    background: rgb(255, 248, 210);
+    
+    overflow: hidden;
+    position: relative;
+}
+  
+.box-2::after {
+    animation: text-reveal 2s ease forwards;
+    bottom: 0;
+    content: '';
+    display: block;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+
+
+
+
+
+/* .box:hover{
+    background-color: rgb(45, 126, 76);
+    transform: scale(1.1);
+
+    border-radius: 50%;
+    outline: 1px solid rgb(255, 255, 255);
+} */
+
+
+@keyframes fly {
+    0% {
+        transition: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+        background-size: 200% 200%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes text-reveal{
+    from {
+        transform: translateX(-101%);
+    }
+    
+    to {
+        transform: translateX(101%);
+    }
+
+}
